@@ -73,8 +73,7 @@ function showNextSurprise() {
   // Play the music
   audio.play();
 
-  // Hide the surprise container and show the loader
-  surpriseContainer.classList.add('hidden');
+  // Show the loader
   loader.style.display = 'block';
 
   // Simulate loading delay
@@ -88,17 +87,13 @@ function showNextSurprise() {
       const progress = ((currentIndex + 1) / surprises.length) * 100;
       progressBar.style.width = `${progress}%`;
 
-      // Show the surprise container after the image is loaded
-      surpriseImage.onload = () => {
-        surpriseContainer.classList.remove('hidden');
-        loader.style.display = 'none'; // Hide loader
-      };
+      // Hide the loader
+      loader.style.display = 'none';
 
       // Move to the next surprise
       currentIndex++;
     } else {
       // All surprises have been shown, display the final letter
-      surpriseContainer.classList.add('hidden');
       loader.style.display = 'none'; // Hide loader
       finalLetter.classList.remove('hidden'); // Show final letter
       revealButton.style.display = 'none'; // Hide the button
