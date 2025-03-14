@@ -99,6 +99,14 @@ button:hover {
   display: none; /* Hidden by default */
 }
 
+#finalLetter.hidden {
+  display: none; /* Ensure it's hidden when the class is applied */
+}
+
+#finalLetter:not(.hidden) {
+  display: block; /* Show when the class is removed */
+}
+
 .letter-box {
   max-width: 600px;
   width: 100%;
@@ -117,7 +125,6 @@ button:hover {
 .letter-box p {
   margin: 0;
 }
-
 /* Scroll Indicator */
 .letter-box::after {
   content: "↓ Scroll ↓";
