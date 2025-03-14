@@ -7,66 +7,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  text-align: center;
-}
-
-.letter {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-button {
-  background-color: #ff6f61;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 18px;
-  margin-top: 20px;
-}
-
-button:hover {
-  background-color: #ff4a3d;
-}
-
-.hidden {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-#surpriseContainer {
-  margin-top: 20px;
-}
-
-#surpriseImage {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-#surpriseMessage {
-  font-size: 20px;
-  color: #555;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   text-align: center;
 }
 
 .letter {
-  max-width: 800px; /* Adjust this for desktop */
+  max-width: 800px;
   width: 100%;
   margin: 0 auto;
 }
@@ -96,8 +42,8 @@ button:hover {
 }
 
 #surpriseImage {
-  max-width: 100%; /* Make the image responsive */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 100%;
+  height: auto;
   border-radius: 10px;
   margin-bottom: 10px;
 }
@@ -128,19 +74,40 @@ button:hover {
   height: 40px;
   animation: spin 1s linear infinite;
   margin: 20px auto;
+  display: none; /* Hidden by default */
+}
+
+/* Progress Bar */
+#progressBar {
+  width: 100%;
+  max-width: 600px;
+  height: 10px;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+#progress {
+  height: 100%;
+  width: 0;
+  background-color: #ff6f61;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Hide the image container while loading */
+#surpriseContainer.hidden {
+  display: none;
+}
+
+#surpriseContainer {
+  display: block; /* Ensure the container is visible when not hidden */
 }
 
 /* Final Letter Section */
 #finalLetter {
   margin-top: 40px;
   text-align: center;
-}
-
-/* Final Letter Section */
-#finalLetter {
-  margin-top: 20px; /* Reduce top margin for mobile */
-  text-align: center;
-  padding: 0 20px; /* Add padding for better spacing on mobile */
 }
 
 #finalLetter.hidden {
@@ -178,80 +145,7 @@ button:hover {
   }
 }
 
-/* Progress Bar */
-#progressBar {
-  width: 100%;
-  max-width: 600px;
-  height: 10px;
-  background-color: #f3f3f3;
-  border-radius: 5px;
-  margin: 20px auto;
-  overflow: hidden;
-}
-
-#progress {
-  height: 100%;
-  width: 0;
-  background-color: #ff6f61;
-  transition: width 0.5s ease-in-out;
-}
-
-/* Hide the image container while loading */
-#surpriseContainer.hidden {
-  display: none;
-}
-
-/* Final Letter Section */
-#finalLetter {
-  margin-top: 40px;
-  text-align: center;
-}
-
-#finalLetter.hidden {
-  display: none;
-}
-
-.letter-box {
-  max-width: 600px;
-  width: 100%;
-  height: 300px; /* Fixed height */
-  margin: 0 auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow-y: auto; /* Enable scrolling */
-  text-align: left;
-  line-height: 1.6;
-}
-
-.letter-box p {
-  margin: 0;
-}
-
-.letter-box {
-  position: relative;
-}
-
-.letter-box::after {
-  content: "↓ Scroll ↓";
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 14px;
-  color: #888;
-  opacity: 0.8;
-}
-
-#surpriseContainer.hidden {
-  display: none;
-}
-
-#surpriseContainer {
-  display: block; /* Ensure the container is visible when not hidden */
-}
-
+/* Scroll Indicator */
 .letter-box {
   position: relative;
 }
