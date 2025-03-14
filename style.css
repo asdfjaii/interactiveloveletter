@@ -157,3 +157,54 @@ button:hover {
 .letter-box p {
   margin: 0;
 }
+
+/* Progress Bar */
+#progressBar {
+  width: 100%;
+  max-width: 600px;
+  height: 10px;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+#progress {
+  height: 100%;
+  width: 0;
+  background-color: #ff6f61;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Hide the image container while loading */
+#surpriseContainer.hidden {
+  display: none;
+}
+
+/* Final Letter Section */
+#finalLetter {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#finalLetter.hidden {
+  display: none;
+}
+
+.letter-box {
+  max-width: 600px;
+  width: 100%;
+  height: 300px; /* Fixed height */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Enable scrolling */
+  text-align: left;
+  line-height: 1.6;
+}
+
+.letter-box p {
+  margin: 0;
+}
