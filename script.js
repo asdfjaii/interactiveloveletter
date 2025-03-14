@@ -1,4 +1,5 @@
 const revealButton = document.getElementById('revealButton');
+const musicControlButton = document.getElementById('musicControl');
 const surpriseImage = document.getElementById('surpriseImage');
 const surpriseMessage = document.getElementById('surpriseMessage');
 const loader = document.getElementById('loader');
@@ -67,16 +68,30 @@ let currentIndex = 0;
 const audio = new Audio('music.mp3');
 audio.volume = 0.5; // Set volume to 50%
 
+// Function to toggle music play/pause
+function toggleMusic() {
+  if (audio.paused) {
+    audio.play();
+    musicControlButton.textContent = "Pause Music 🎵";
+  } else {
+    audio.pause();
+    musicControlButton.textContent = "Play Music 🎵";
+  }
+}
+
+// Show the next surprise
 function showNextSurprise() {
   // Play the music
   audio.play();
+  musicControlButton.style.display = 'block'; // Show the music control button
+  musicControlButton.textContent = "Pause Music 🎵";
 
   // Show the loader
   loader.style.display = 'block';
 
   // Hide the current image and message (if any)
-  surpriseImage.classList.remove('active');
-  surpriseMessage.classList.remove('active');
+  surpriseImage.style.display = 'none';
+  surpriseMessage.style.display = 'none';
 
   // Simulate loading delay
   setTimeout(() => {
@@ -90,8 +105,8 @@ function showNextSurprise() {
       surpriseMessage.textContent = currentSurprise.message;
 
       // Show the image and message
-      surpriseImage.classList.add('active');
-      surpriseMessage.classList.add('active');
+      surpriseImage.style.display = 'block';
+      surpriseMessage.style.display = 'block';
 
       // Hide the loader
       loader.style.display = 'none';
@@ -102,10 +117,11 @@ function showNextSurprise() {
       // All surprises have been shown, display the final letter
       loader.style.display = 'none'; // Hide loader
       finalLetter.classList.remove('hidden'); // Show final letter
-      revealButton.style.display = 'none'; // Hide the button
+      revealButton.style.display = 'none'; // Hide the reveal button
     }
   }, 1000); // Adjust the delay as needed
 }
 
-// Attach the event listener to the button
+// Attach event listeners
 revealButton.addEventListener('click', showNextSurprise);
+musicControlButton.addEventListener('click', toggleMusic);
