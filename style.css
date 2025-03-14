@@ -174,3 +174,20 @@ button {
 #surpriseImage.active, #surpriseMessage.active {
   display: block;
 }
+
+/* Music Control Button */
+#musicControl {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  display: none; /* Hidden by default */
+}
+
+#musicControl:hover {
+  background-color: #45a049; /* Darker green */
+}
