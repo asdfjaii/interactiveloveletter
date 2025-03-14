@@ -84,6 +84,7 @@ function showNextSurprise() {
 
       surpriseImage.src = currentSurprise.image;
       surpriseMessage.textContent = currentSurprise.message;
+      surpriseImage.style.display = 'block';
 
       // Update progress bar
       const progress = ((currentIndex + 1) / surprises.length) * 100;
