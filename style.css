@@ -243,3 +243,11 @@ button:hover {
   color: #888;
   opacity: 0.8;
 }
+
+#surpriseContainer.hidden {
+  display: none;
+}
+
+#surpriseContainer {
+  display: block; /* Ensure the container is visible when not hidden */
+}
