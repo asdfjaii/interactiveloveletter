@@ -79,8 +79,11 @@ function showNextSurprise() {
   setTimeout(() => {
     if (currentIndex < surprises.length) {
       // Show the current surprise
-      surpriseImage.src = surprises[currentIndex].image;
-      surpriseMessage.textContent = surprises[currentIndex].message;
+      const currentSurprise = surprises[currentIndex];
+      console.log("Current Surprise:", currentSurprise); // Debugging message
+
+      surpriseImage.src = currentSurprise.image;
+      surpriseMessage.textContent = currentSurprise.message;
 
       // Update progress bar
       const progress = ((currentIndex + 1) / surprises.length) * 100;
