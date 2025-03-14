@@ -92,6 +92,10 @@ function showNextSurprise() {
       // Hide the loader
       loader.style.display = 'none';
 
+      // Show the image and message
+      surpriseImage.classList.remove('hidden');
+      surpriseMessage.classList.remove('hidden');
+
       // Move to the next surprise
       currentIndex++;
     } else {
