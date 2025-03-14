@@ -75,8 +75,8 @@ function showNextSurprise() {
   loader.style.display = 'block';
 
   // Hide the current image and message (if any)
-  surpriseImage.style.display = 'none';
-  surpriseMessage.style.display = 'none';
+  surpriseImage.classList.remove('active');
+  surpriseMessage.classList.remove('active');
 
   // Simulate loading delay
   setTimeout(() => {
@@ -90,8 +90,8 @@ function showNextSurprise() {
       surpriseMessage.textContent = currentSurprise.message;
 
       // Show the image and message
-      surpriseImage.style.display = 'block';
-      surpriseMessage.style.display = 'block';
+      surpriseImage.classList.add('active');
+      surpriseMessage.classList.add('active');
 
       // Hide the loader
       loader.style.display = 'none';
