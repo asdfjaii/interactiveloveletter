@@ -3,6 +3,8 @@ const surpriseImage = document.getElementById('surpriseImage');
 const surpriseMessage = document.getElementById('surpriseMessage');
 const loader = document.getElementById('loader');
 const finalLetter = document.getElementById('finalLetter');
+const progressBar = document.getElementById('progress');
+const surpriseContainer = document.getElementById('surpriseContainer');
 
 const surprises = [
   { image: "https://i.imgur.com/jqM74J0.jpg", message: "Escaping work through Family Mart" },
@@ -71,10 +73,9 @@ function showNextSurprise() {
   // Play the music
   audio.play();
 
-  // Show loader
+  // Hide the surprise container while loading
+  surpriseContainer.classList.add('hidden');
   loader.style.display = 'block';
-  surpriseImage.classList.add('hidden');
-  surpriseMessage.classList.add('hidden');
 
   // Simulate loading delay
   setTimeout(() => {
@@ -83,16 +84,19 @@ function showNextSurprise() {
       surpriseImage.src = surprises[currentIndex].image;
       surpriseMessage.textContent = surprises[currentIndex].message;
 
-      surpriseImage.classList.remove('hidden');
-      surpriseMessage.classList.remove('hidden');
+      // Update progress bar
+      const progress = ((currentIndex + 1) / surprises.length) * 100;
+      progressBar.style.width = `${progress}%`;
+
+      // Show the surprise container
+      surpriseContainer.classList.remove('hidden');
       loader.style.display = 'none'; // Hide loader
 
       // Move to the next surprise
       currentIndex++;
     } else {
       // All surprises have been shown, display the final letter
-      surpriseImage.classList.add('hidden');
-      surpriseMessage.classList.add('hidden');
+      surpriseContainer.classList.add('hidden');
       loader.style.display = 'none'; // Hide loader
       finalLetter.classList.remove('hidden'); // Show final letter
       revealButton.style.display = 'none'; // Hide the button
