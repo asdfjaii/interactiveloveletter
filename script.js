@@ -73,7 +73,7 @@ function showNextSurprise() {
   // Play the music
   audio.play();
 
-  // Hide the surprise container while loading
+  // Hide the surprise container and show the loader
   surpriseContainer.classList.add('hidden');
   loader.style.display = 'block';
 
@@ -88,9 +88,11 @@ function showNextSurprise() {
       const progress = ((currentIndex + 1) / surprises.length) * 100;
       progressBar.style.width = `${progress}%`;
 
-      // Show the surprise container
-      surpriseContainer.classList.remove('hidden');
-      loader.style.display = 'none'; // Hide loader
+      // Show the surprise container after the image is loaded
+      surpriseImage.onload = () => {
+        surpriseContainer.classList.remove('hidden');
+        loader.style.display = 'none'; // Hide loader
+      };
 
       // Move to the next surprise
       currentIndex++;
