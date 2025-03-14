@@ -1,3 +1,4 @@
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
@@ -15,8 +16,11 @@ body {
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+/* Button Styles */
 button {
   background-color: #ff6f61;
   color: white;
@@ -32,9 +36,37 @@ button:hover {
   background-color: #ff4a3d;
 }
 
-.hidden {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+/* Loader Styles */
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ff6f61;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+  display: none; /* Hidden by default */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Music Control Icon */
+.music-control {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  display: none; /* Hidden by default */
+}
+
+.music-control:hover {
+  opacity: 1;
 }
 
 /* Surprise Container */
@@ -56,32 +88,7 @@ button:hover {
 #surpriseMessage {
   font-size: 20px;
   color: #555;
-  display: none; /* Hidden by default */
   margin-top: 10px; /* Space above the message */
-}
-
-/* Show the image and message when active */
-#surpriseImage.active, #surpriseMessage.active {
-  display: block;
-}
-
-.hidden {
-  opacity: 0;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.loader {
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #ff6f61;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-  margin: 20px auto;
   display: none; /* Hidden by default */
 }
 
@@ -89,10 +96,7 @@ button:hover {
 #finalLetter {
   margin-top: 40px;
   text-align: center;
-}
-
-#finalLetter.hidden {
-  display: none;
+  display: none; /* Hidden by default */
 }
 
 .letter-box {
@@ -114,6 +118,18 @@ button:hover {
   margin: 0;
 }
 
+/* Scroll Indicator */
+.letter-box::after {
+  content: "↓ Scroll ↓";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #888;
+  opacity: 0.8;
+}
+
 /* Adjust layout for smaller screens */
 @media (max-width: 600px) {
   .letter-box {
@@ -124,77 +140,4 @@ button:hover {
   #finalLetter {
     margin-top: 10px; /* Reduce top margin for small screens */
   }
-}
-
-/* Scroll Indicator */
-.letter-box {
-  position: relative;
-}
-
-.letter-box::after {
-  content: "↓ Scroll ↓";
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 14px;
-  color: #888;
-  opacity: 0.2;
-}
-
-/* Ensure the letter container is centered on desktop */
-.letter {
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* Adjust button size for desktop */
-button {
-  background-color: #ff6f61;
-  color: white;
-  border: none;
-  padding: 15px 30px; /* Larger padding for desktop */
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 20px; /* Larger font size for desktop */
-  margin-top: 20px;
-}
-
-/* Ensure images and messages are properly displayed */
-#surpriseImage {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px; /* More spacing for desktop */
-  display: none; /* Hidden by default */
-}
-
-#surpriseMessage {
-  font-size: 24px; /* Larger font size for desktop */
-  color: #555;
-  display: none; /* Hidden by default */
-}
-
-/* Show the image and message when active */
-#surpriseImage.active, #surpriseMessage.active {
-  display: block;
-}
-
-/* Music Control Icon */
-.music-control {
-  position: fixed; /* Fixed position */
-  top: 20px; /* Position from the top */
-  right: 20px; /* Position from the right */
-  font-size: 12px; /* Icon size */
-  cursor: pointer; /* Pointer cursor on hover */
-  opacity: 0.7; /* Slightly transparent */
-  transition: opacity 0.3s ease; /* Smooth transition */
-  display: none; /* Hidden by default */
-}
-
-.music-control:hover {
-  opacity: 1; /* Fully visible on hover */
 }
