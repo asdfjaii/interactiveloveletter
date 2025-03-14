@@ -251,3 +251,18 @@ button:hover {
 #surpriseContainer {
   display: block; /* Ensure the container is visible when not hidden */
 }
+
+.letter-box {
+  position: relative;
+}
+
+.letter-box::after {
+  content: "↓ Scroll ↓";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #888;
+  opacity: 0.8;
+}
