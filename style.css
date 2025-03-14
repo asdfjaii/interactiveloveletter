@@ -133,3 +133,44 @@ button:hover {
   color: #888;
   opacity: 0.8;
 }
+
+/* Ensure the letter container is centered on desktop */
+.letter {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Adjust button size for desktop */
+button {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 15px 30px; /* Larger padding for desktop */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px; /* Larger font size for desktop */
+  margin-top: 20px;
+}
+
+/* Ensure images and messages are properly displayed */
+#surpriseImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px; /* More spacing for desktop */
+  display: none; /* Hidden by default */
+}
+
+#surpriseMessage {
+  font-size: 24px; /* Larger font size for desktop */
+  color: #555;
+  display: none; /* Hidden by default */
+}
+
+/* Show the image and message when active */
+#surpriseImage.active, #surpriseMessage.active {
+  display: block;
+}
