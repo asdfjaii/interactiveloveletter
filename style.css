@@ -77,24 +77,6 @@ button:hover {
   display: none; /* Hidden by default */
 }
 
-/* Progress Bar */
-#progressBar {
-  width: 100%;
-  max-width: 600px;
-  height: 10px;
-  background-color: #f3f3f3;
-  border-radius: 5px;
-  margin: 20px auto;
-  overflow: hidden;
-}
-
-#progress {
-  height: 100%;
-  width: 0;
-  background-color: #ff6f61;
-  transition: width 0.5s ease-in-out;
-}
-
 /* Final Letter Section */
 #finalLetter {
   margin-top: 40px;
