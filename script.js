@@ -63,6 +63,7 @@ function shuffleArray(array) {
 shuffleArray(surprises);
 
 let currentIndex = 0;
+let isFirstClick = true; // Track if it's the first click
 
 // Initialize audio
 const audio = new Audio('music.mp3');
@@ -81,10 +82,13 @@ function toggleMusic() {
 
 // Show the next surprise
 function showNextSurprise() {
-  // Play the music
-  audio.play();
-  musicControl.style.display = 'block'; // Show the music control icon
-  musicControl.textContent = "⏸️"; // Set to pause icon
+  // Play the music only on the first click
+  if (isFirstClick) {
+    audio.play();
+    musicControl.style.display = 'block'; // Show the music control icon
+    musicControl.textContent = "⏸️"; // Set to pause icon
+    isFirstClick = false; // Mark that the first click has happened
+  }
 
   // Show the loader
   loader.style.display = 'block';
@@ -117,6 +121,7 @@ function showNextSurprise() {
       // All surprises have been shown, display the final letter
       loader.style.display = 'none'; // Hide loader
       finalLetter.classList.remove('hidden'); // Show final letter
+      finalLetter.style.display = 'block'; // Ensure it's displayed
       revealButton.style.display = 'none'; // Hide the reveal button
     }
   }, 1000); // Adjust the delay as needed
