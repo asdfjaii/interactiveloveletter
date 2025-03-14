@@ -95,15 +95,6 @@ button:hover {
   transition: width 0.5s ease-in-out;
 }
 
-/* Hide the image container while loading */
-#surpriseContainer.hidden {
-  display: none;
-}
-
-#surpriseContainer {
-  display: block; /* Ensure the container is visible when not hidden */
-}
-
 /* Final Letter Section */
 #finalLetter {
   margin-top: 40px;
@@ -158,5 +149,5 @@ button:hover {
   transform: translateX(-50%);
   font-size: 14px;
   color: #888;
-  opacity: 0.8;
+  opacity: 0.2;
 }
