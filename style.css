@@ -175,19 +175,18 @@ button {
   display: block;
 }
 
-/* Music Control Button */
-#musicControl {
-  background-color: #4CAF50; /* Green */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px;
+/* Music Control Icon */
+.music-control {
+  position: fixed; /* Fixed position */
+  top: 20px; /* Position from the top */
+  right: 20px; /* Position from the right */
+  font-size: 24px; /* Icon size */
+  cursor: pointer; /* Pointer cursor on hover */
+  opacity: 0.7; /* Slightly transparent */
+  transition: opacity 0.3s ease; /* Smooth transition */
   display: none; /* Hidden by default */
 }
 
-#musicControl:hover {
-  background-color: #45a049; /* Darker green */
+.music-control:hover {
+  opacity: 1; /* Fully visible on hover */
 }
