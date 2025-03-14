@@ -4,7 +4,6 @@ const surpriseMessage = document.getElementById('surpriseMessage');
 const loader = document.getElementById('loader');
 const finalLetter = document.getElementById('finalLetter');
 const progressBar = document.getElementById('progress');
-const surpriseContainer = document.getElementById('surpriseContainer');
 
 const surprises = [
   { image: "https://i.imgur.com/jqM74J0.jpg", message: "Escaping work through Family Mart" },
