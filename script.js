@@ -74,6 +74,10 @@ function showNextSurprise() {
   // Show the loader
   loader.style.display = 'block';
 
+  // Hide the current image and message (if any)
+  surpriseImage.style.display = 'none';
+  surpriseMessage.style.display = 'none';
+
   // Simulate loading delay
   setTimeout(() => {
     if (currentIndex < surprises.length) {
@@ -81,16 +85,16 @@ function showNextSurprise() {
       const currentSurprise = surprises[currentIndex];
       console.log("Current Surprise:", currentSurprise); // Debugging message
 
+      // Set the image and message
       surpriseImage.src = currentSurprise.image;
       surpriseMessage.textContent = currentSurprise.message;
+
+      // Show the image and message
       surpriseImage.style.display = 'block';
+      surpriseMessage.style.display = 'block';
 
       // Hide the loader
       loader.style.display = 'none';
-
-      // Show the image and message
-      surpriseImage.classList.remove('hidden');
-      surpriseMessage.classList.remove('hidden');
 
       // Move to the next surprise
       currentIndex++;
