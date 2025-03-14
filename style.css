@@ -131,7 +131,7 @@ button:hover {
   transform: translateX(-50%);
   font-size: 14px;
   color: #888;
-  opacity: 0.8;
+  opacity: 0.2;
 }
 
 /* Ensure the letter container is centered on desktop */
