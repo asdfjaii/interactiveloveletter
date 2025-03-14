@@ -1,5 +1,5 @@
 const revealButton = document.getElementById('revealButton');
-const musicControlButton = document.getElementById('musicControl');
+const musicControl = document.getElementById('musicControl');
 const surpriseImage = document.getElementById('surpriseImage');
 const surpriseMessage = document.getElementById('surpriseMessage');
 const loader = document.getElementById('loader');
@@ -72,10 +72,10 @@ audio.volume = 0.5; // Set volume to 50%
 function toggleMusic() {
   if (audio.paused) {
     audio.play();
-    musicControlButton.textContent = "Pause Music 🎵";
+    musicControl.textContent = "⏸️"; // Pause icon
   } else {
     audio.pause();
-    musicControlButton.textContent = "Play Music 🎵";
+    musicControl.textContent = "▶️"; // Play icon
   }
 }
 
@@ -83,8 +83,8 @@ function toggleMusic() {
 function showNextSurprise() {
   // Play the music
   audio.play();
-  musicControlButton.style.display = 'block'; // Show the music control button
-  musicControlButton.textContent = "Pause Music 🎵";
+  musicControl.style.display = 'block'; // Show the music control icon
+  musicControl.textContent = "⏸️"; // Set to pause icon
 
   // Show the loader
   loader.style.display = 'block';
@@ -124,4 +124,4 @@ function showNextSurprise() {
 
 // Attach event listeners
 revealButton.addEventListener('click', showNextSurprise);
-musicControlButton.addEventListener('click', toggleMusic);
+musicControl.addEventListener('click', toggleMusic);
