@@ -88,3 +88,20 @@ revealButton.addEventListener('click', () => {
   audio.play(); // Play the music when the button is clicked
   showNextSurprise();
 });
+
+const loader = document.getElementById('loader');
+
+function showNextSurprise() {
+  loader.classList.remove('hidden'); // Show loader
+  surpriseImage.classList.add('hidden'); // Hide image
+  surpriseMessage.classList.add('hidden'); // Hide message
+
+  setTimeout(() => {
+    surpriseImage.src = surprises[currentIndex].image;
+    surpriseMessage.textContent = surprises[currentIndex].message;
+
+    surpriseImage.classList.remove('hidden');
+    surpriseMessage.classList.remove('hidden');
+    loader.classList.add('hidden'); // Hide loader
+  }, 1000); // Simulate loading delay
+}
