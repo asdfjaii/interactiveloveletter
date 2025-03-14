@@ -81,3 +81,10 @@ function showNextSurprise() {
 
 // Attach the event listener to the button
 revealButton.addEventListener('click', showNextSurprise);
+
+const audio = new Audio('music.mp3'); // Add your music file name here
+
+revealButton.addEventListener('click', () => {
+  audio.play(); // Play the music when the button is clicked
+  showNextSurprise();
+});
