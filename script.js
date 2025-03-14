@@ -1,6 +1,8 @@
 const revealButton = document.getElementById('revealButton');
 const surpriseImage = document.getElementById('surpriseImage');
 const surpriseMessage = document.getElementById('surpriseMessage');
+const loader = document.getElementById('loader');
+const finalLetter = document.getElementById('finalLetter');
 
 const surprises = [
   { image: "https://i.imgur.com/jqM74J0.jpg", message: "Escaping work through Family Mart" },
@@ -61,47 +63,42 @@ shuffleArray(surprises);
 
 let currentIndex = 0;
 
+// Initialize audio
+const audio = new Audio('music.mp3');
+audio.volume = 0.5; // Set volume to 50%
+
 function showNextSurprise() {
-  // Show the current surprise
-  surpriseImage.src = surprises[currentIndex].image;
-  surpriseMessage.textContent = surprises[currentIndex].message;
+  // Play the music
+  audio.play();
 
-  surpriseImage.classList.remove('hidden');
-  surpriseMessage.classList.remove('hidden');
+  // Show loader
+  loader.style.display = 'block';
+  surpriseImage.classList.add('hidden');
+  surpriseMessage.classList.add('hidden');
 
-  // Move to the next surprise
-  currentIndex++;
+  // Simulate loading delay
+  setTimeout(() => {
+    if (currentIndex < surprises.length) {
+      // Show the current surprise
+      surpriseImage.src = surprises[currentIndex].image;
+      surpriseMessage.textContent = surprises[currentIndex].message;
 
-  // If we've reached the end of the array, shuffle and start over
-  if (currentIndex >= surprises.length) {
-    shuffleArray(surprises);
-    currentIndex = 0;
-  }
+      surpriseImage.classList.remove('hidden');
+      surpriseMessage.classList.remove('hidden');
+      loader.style.display = 'none'; // Hide loader
+
+      // Move to the next surprise
+      currentIndex++;
+    } else {
+      // All surprises have been shown, display the final letter
+      surpriseImage.classList.add('hidden');
+      surpriseMessage.classList.add('hidden');
+      loader.style.display = 'none'; // Hide loader
+      finalLetter.classList.remove('hidden'); // Show final letter
+      revealButton.style.display = 'none'; // Hide the button
+    }
+  }, 1000); // Adjust the delay as needed
 }
 
 // Attach the event listener to the button
 revealButton.addEventListener('click', showNextSurprise);
-
-const audio = new Audio('music.mp3'); // Add your music file name here
-
-revealButton.addEventListener('click', () => {
-  audio.play(); // Play the music when the button is clicked
-  showNextSurprise();
-});
-
-const loader = document.getElementById('loader');
-
-function showNextSurprise() {
-  loader.classList.remove('hidden'); // Show loader
-  surpriseImage.classList.add('hidden'); // Hide image
-  surpriseMessage.classList.add('hidden'); // Hide message
-
-  setTimeout(() => {
-    surpriseImage.src = surprises[currentIndex].image;
-    surpriseMessage.textContent = surprises[currentIndex].message;
-
-    surpriseImage.classList.remove('hidden');
-    surpriseMessage.classList.remove('hidden');
-    loader.classList.add('hidden'); // Hide loader
-  }, 1000); // Simulate loading delay
-}
