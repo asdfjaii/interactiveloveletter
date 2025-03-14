@@ -51,3 +51,58 @@ button:hover {
   font-size: 20px;
   color: #555;
 }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.letter {
+  max-width: 800px; /* Adjust this for desktop */
+  width: 100%;
+  margin: 0 auto;
+}
+
+button {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #ff4a3d;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#surpriseContainer {
+  margin-top: 20px;
+}
+
+#surpriseImage {
+  max-width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#surpriseMessage {
+  font-size: 20px;
+  color: #555;
+}
