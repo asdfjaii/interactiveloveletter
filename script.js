@@ -3,7 +3,6 @@ const surpriseImage = document.getElementById('surpriseImage');
 const surpriseMessage = document.getElementById('surpriseMessage');
 const loader = document.getElementById('loader');
 const finalLetter = document.getElementById('finalLetter');
-const progressBar = document.getElementById('progress');
 
 const surprises = [
   { image: "https://i.imgur.com/jqM74J0.jpg", message: "Escaping work through Family Mart" },
@@ -85,10 +84,6 @@ function showNextSurprise() {
       surpriseImage.src = currentSurprise.image;
       surpriseMessage.textContent = currentSurprise.message;
       surpriseImage.style.display = 'block';
-
-      // Update progress bar
-      const progress = ((currentIndex + 1) / surprises.length) * 100;
-      progressBar.style.width = `${progress}%`;
 
       // Hide the loader
       loader.style.display = 'none';
